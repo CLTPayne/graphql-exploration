@@ -19,8 +19,8 @@ const app = express();
 app.use('/graphql', graphqlHttp({
   schema: schema,
   rootValue: root,
-  graphql: true,
+  graphiql: true,
 }));
 
 app.listen(4000)
-console.log('Running GraphQL API server')
+console.log('Running GraphQL API server on localhost:4000/graphql')
