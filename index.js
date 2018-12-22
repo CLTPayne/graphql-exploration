@@ -7,3 +7,9 @@ const schema = buildSchema(`
     getWelcome: String
   }
 `);
+
+const root = {
+  getWelcome: () => {
+    return "Welcome from GraphQL";
+  },
+};
