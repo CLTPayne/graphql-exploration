@@ -13,3 +13,14 @@ const root = {
     return "Welcome from GraphQL";
   },
 };
+
+const app = express();
+
+app.use('/graphql', graphqlHttp({
+  schema: schema,
+  rootValue: root,
+  graphql: true,
+}));
+
+app.listen(4000)
+console.log('Running GraphQL API server')
