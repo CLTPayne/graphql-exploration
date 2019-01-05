@@ -41,6 +41,17 @@ const schema = buildSchema(`
 `);
 
 const root = {
+  getUser: (args) => {
+    const { id } = args;
+    return data.users.find(user => user.id === id);
+  },
+  getUsers: (args) => {
+    const { userIds } = args;
+    const foundUsers = data.users.filter(user => {
+      return userIds.some(id => id === user.id);
+    });
+    return foundUsers;
+  },
   getWelcome: () => {
     return "Welcome from GraphQL";
   },
