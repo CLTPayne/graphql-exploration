@@ -43,11 +43,17 @@ const schema = buildSchema(`
     getWelcome: String
   }
   type Mutation {
-    createUser(input: UserInput): User 
+    createUser(input: UserInput): User
   }
 `);
 
 const root = {
+  createUser: (args) => {
+    const { age, name } = args.input;
+    const id = data.users.length + 1;
+    data.users.push({ age, id, name });
+    return data.users.find(user => user.id === id);
+  },
   getUser: (args) => {
     const { id } = args;
     return data.users.find(user => user.id === id);
