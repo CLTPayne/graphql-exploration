@@ -28,6 +28,10 @@ const data = {
 }
 
 const schema = buildSchema(`
+  type UserInput {
+    age: Int
+    name: String
+  }
   type User {
     age: Int
     id: ID
@@ -37,6 +41,9 @@ const schema = buildSchema(`
     getUser(id: Int!): User
     getUsers(userIds: [Int]!): [User]
     getWelcome: String
+  }
+  type Mutation {
+    createUser(input: UserInput): User 
   }
 `);
 
