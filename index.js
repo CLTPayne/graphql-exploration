@@ -28,7 +28,7 @@ const data = {
 }
 
 const schema = buildSchema(`
-  type UserInput {
+  input UserInput {
     age: Int
     name: String
   }
